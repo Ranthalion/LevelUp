@@ -1,0 +1,36 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+hostname: levelup
+name: levelup
+provider: virtualbox
+
+authorize: ~/.ssh/levelup.pub
+
+keys:
+    - ~/.ssh/levelup
+
+folders:
+    - map: "F:/projects/LevelUp"
+      to: "/home/vagrant/levelup"
+
+sites:
+    - map: homestead.app
+      to: "/home/vagrant/levelup/public"
+
+databases:
+    - homestead
+
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
