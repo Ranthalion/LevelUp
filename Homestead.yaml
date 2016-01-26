@@ -6,17 +6,17 @@ hostname: levelup
 name: levelup
 provider: virtualbox
 
-authorize: ~/.ssh/levelup.pub
+authorize: ~/.ssh/id_rsa.pub
 
 keys:
-    - ~/.ssh/levelup
+    - ~/.ssh/id_rsa
 
 folders:
-    - map: "F:/projects/LevelUp"
+    - map: "D:/projects/LevelUp"
       to: "/home/vagrant/levelup"
 
 sites:
-    - map: homestead.app
+    - map: levelup.app
       to: "/home/vagrant/levelup/public"
 
 databases:

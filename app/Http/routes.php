@@ -31,6 +31,10 @@ Route::group(['middleware' => ['web']], function () {
 	* Dashboard
 	*/
 	Route::get('/', function(){
+		return redirect('/login');
+	});
+
+	Route::get('/tasks', function(Request $request){
 		$tasks = Task::orderBy('created_at', 'asc')->get();
 
 		return view('tasks', [
@@ -69,4 +73,17 @@ Route::group(['middleware' => ['web']], function () {
 		return redirect('/');
     });
 	
+	Route::get('/login', function(){
+		return view("login");
+
+	});
+
+
+
+	Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
+    Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
+    /*
+    Route::get('auth/google', 'Auth\AuthController@redirectToProvider');
+    Route::get('auth/google/callback', 'Auth\AuthController@handleProviderCallback');
+	*/
 });
