@@ -42,9 +42,9 @@ return [
 	],
 	
 	'facebook' => [
-		'client_id' => 'your-github-app-id',
-		'client_secret' => 'your-github-app-secret',
-		'redirect' => 'http://your-callback-url',
+		'client_id' => env('FACEBOOK_ID'),
+		'client_secret' => env('FACEBOOK_SECRET'),
+		'redirect' => env('FACEBOOK_URL'),
 	],
 	 
 	'twitter' => [

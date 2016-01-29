@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Socialite;
+use Auth;
+
 
 class AuthController extends Controller
 {
@@ -91,14 +93,15 @@ class AuthController extends Controller
         try {
             $user = Socialite::driver($provider)->user();
         } catch (Exception $e) {
-            return Redirect::to('auth/github');
+            return Socialite::driver($provider)->redirect();
         }
 
-        $authUser = $this->findOrCreateUser($user);
+        $authUser = $this->findOrCreateUser($provider, $user);
 
         Auth::login($authUser, true);
 
-        return Redirect::to('home');
+        
+        return \Redirect::to('/home');
     }
 
     /**
@@ -107,17 +110,20 @@ class AuthController extends Controller
      * @param $githubUser
      * @return User
      */
-    private function findOrCreateUser($githubUser)
+    private function findOrCreateUser($provider, $user)
     {
-        if ($authUser = User::where('github_id', $githubUser->id)->first()) {
+        if ($authUser = User::where('provider', $provider)
+                   ->where('provider_id', $user->id)->first()) {
             return $authUser;
         }
-
+        
+        $user->name = $user->name ?? $user->email ?? 'Unknown User';
+        
         return User::create([
-            'name' => $githubUser->name,
-            'email' => $githubUser->email,
-            'github_id' => $githubUser->id,
-            'avatar' => $githubUser->avatar
+            'name' => $user->name,
+            'email' => $user->email,
+            'provider' => $provider,
+            'provider_id' => $user->id,
         ]);
     }
 	

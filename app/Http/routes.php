@@ -27,63 +27,19 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['middleware' => ['web']], function () {
-    /**
-	* Dashboard
-	*/
+    
 	Route::get('/', function(){
-		return redirect('/login');
+		return view('home');
 	});
-
-	Route::get('/tasks', function(Request $request){
-		$tasks = Task::orderBy('created_at', 'asc')->get();
-
-		return view('tasks', [
-			'tasks' => $tasks
-		]);
-	});
-	
-	/**
-     * Add New Task
-     */
-    Route::post('/task', function (Request $request) {
-         $validator = Validator::make($request->all(), [
-			'name' => 'required|max:255',
-		]);
-
-		if ($validator->fails()) {
-			return redirect('/')
-				->withInput()
-				->withErrors($validator);
-		}
-
-		// Create The Task...
-		$task = new Task;
-		$task->name = $request->name;
-		$task->save();
-
-		return redirect('/');
-    });
-
-    /**
-     * Delete Task
-     */
-    Route::delete('/task/{task}', function (Task $task) {
-        $task->delete();
-
-		return redirect('/');
-    });
-	
-	Route::get('/login', function(){
-		return view("login");
-
-	});
-
-
 
 	Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
     Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
-    /*
-    Route::get('auth/google', 'Auth\AuthController@redirectToProvider');
-    Route::get('auth/google/callback', 'Auth\AuthController@handleProviderCallback');
-	*/
+    Route::auth();
+    Route::get('/home', 'HomeController@index');
+});
+
+Route::group(['middleware' => ['web', 'auth']], function () {
+    
+    Route::controller('profile', 'ProfileController');
+    
 });
