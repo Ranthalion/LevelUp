@@ -29,7 +29,7 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => ['web']], function () {
     
 	Route::get('/', function(){
-		return view('home');
+		return view('splash');
 	});
 
 	Route::get('auth/{provider}', 'Auth\AuthController@redirectToProvider');
