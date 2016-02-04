@@ -11,6 +11,6 @@ class ProfileController extends Controller
 {
     public function getIndex()
     {
-        return "Profile";
+        return view("profile");
     }
 }
