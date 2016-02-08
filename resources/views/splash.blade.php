@@ -94,7 +94,7 @@
                     <div class="intro-text">
                         <span class="name">Level Up</span>
                         <span class="skills">Get started learning and sharing skills today</span>
-                        <button type="button" class="btn btn-primary mt10">Browse skills</button>
+                        <a href="http://levelup.app/skills" class="btn btn-primary mt10">Browse skills</a>
                     </div>
                 </div>
             </div>

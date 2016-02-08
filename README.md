@@ -22,4 +22,4 @@ vagrant up to start the server, then ssh into the server and run the following
 php artisan migrate
 
 ** I also had a problem with composer and php working with PHP 5 on Windows 10.  It worked after upgrading to PHP7...
-** Windows 10 seems to have some bug with downloading files using vagrant
+** Windows 10 seems to have some bug with downloading files using vagrant.  It was due to Curl not having VC++ distributables installed. https://www.microsoft.com/en-us/download/details.aspx?id=48145

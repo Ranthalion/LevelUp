@@ -36,6 +36,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
     Route::auth();
     Route::get('/home', 'HomeController@index');
+
+    Route::resource('skills', 'SkillController');
 });
 
 Route::group(['middleware' => ['web', 'auth']], function () {
