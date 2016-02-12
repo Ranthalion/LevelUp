@@ -92,9 +92,11 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="intro-text">
-                        <span class="name">Level Up</span>
-                        <span class="skills">Get started learning and sharing skills today</span>
-                        <a href="http://levelup.app/skills" class="btn btn-primary mt10">Browse skills</a>
+                        <div>
+                            <span class="name">Level Up</span>
+                            <span class="skills">Get started learning and sharing skills today</span>
+                        </div>
+                        <a href="#portfolio" class="btn btn-primary mt10">Browse Skills</a>
                     </div>
                 </div>
             </div>
@@ -112,7 +114,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <a href="{{ action('SkillController@index', 'woodworking') }}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 Woodworking
@@ -122,7 +124,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <a href="{{ action('SkillController@index', 'Digital Fabrication') }}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 Digital Fabrication
@@ -132,7 +134,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                    <a href="{{ action('SkillController@index', 'technology') }}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 Technology
@@ -142,7 +144,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                    <a href="{{ action('SkillController@index', 'electronics') }}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 Electronics
@@ -152,7 +154,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                    <a href="{{ action('SkillController@index', 'arts') }}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 Arts
@@ -162,7 +164,7 @@
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                    <a href="{{ action('SkillController@index', 'science') }}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 Science
@@ -192,7 +194,7 @@
                     <p>Whether you're into knitting, programming, woodworking, blacksmithing, or whatever you're into, Level Up is the place to find others to refine your skills or to learn something new altogether!</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                <button type="button" class="btn btn-primary mt10">Browse skills</button>
+                <a href="{{ action('SkillController@index', '') }}" class="btn btn-primary mt10">Browse Skills</a>
                 </div>
             </div>
         </div>

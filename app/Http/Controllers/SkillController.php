@@ -16,10 +16,37 @@ class SkillController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category = 'All')
     {
-        $skills = Skill::orderBy('name', 'asc')->get();
-        return view('Skills', ['skills' => $skills]);
+        if ($category == 'All'){
+            $skills = Skill::orderBy('name', 'asc')->get();
+        }
+        else{
+            $cat = Category::where('name', $category)->first();
+            if ($cat != null){
+               $skills = Skill::where('category_id', $cat->id)->orderBy('name', 'asc')->get();
+               $category=$cat->name;
+            }
+            else{
+                $skills = array();
+            }
+        }
+
+        $categories = array('' => 'All') +  Category::lists('name', 'name')->all();
+
+        return view('Skills', ['skills' => $skills, 'categories' => $categories, 'category' => $category]);
+    }
+
+
+    /**
+    * Accept a category and redirect to index
+    *
+    */
+    public function category(Request $request)
+    {
+        
+        $category = $request->input('category');    
+        return redirect()->action('SkillController@index', array('category'=>$category));
     }
 
     /**

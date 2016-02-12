@@ -13,13 +13,14 @@
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="http://levelup.app/css/main.css" rel="stylesheet">
+    <link href="http://levelup.app/css/bootstrap-social.css" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    {{ Html::style('font-awesome/css/font-awesome.min.css') }}
+    
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -44,14 +45,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Level Up</a>
+                <a class="navbar-brand" href="http://levelup.app">Level Up</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="http://levelup.app"></a>
                     </li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
@@ -85,15 +86,17 @@
 
     @yield('content')
 
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>  
-<script type="text/javascript" src="js/main.js"></script>
-{{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    {{ Html::script('js/jquery.js') }}
+    {{ Html::script('js/bootstrap.min.js') }}
+    {{ Html::script('js/main.js') }}
+    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
-<!-- Plugin JavaScript -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/cbpAnimatedHeader.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    {{ Html::script('js/classie.js') }}
+    {{ Html::script('js/cbpAnimatedHeader.js') }}
+
+    @yield('scripts')
 
 </body>
 </html>
