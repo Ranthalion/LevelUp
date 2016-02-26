@@ -13,8 +13,8 @@
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://levelup.app/css/main.css" rel="stylesheet">
-    <link href="http://levelup.app/css/bootstrap-social.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/bootstrap-social.css" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
 
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://levelup.app">Level Up</a>
+                <a class="navbar-brand" href="/">Level Up</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -95,6 +95,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     {{ Html::script('js/classie.js') }}
     {{ Html::script('js/cbpAnimatedHeader.js') }}
+    {{ Html::script('js/jquery.typewatch.js') }}
 
     @yield('scripts')
 

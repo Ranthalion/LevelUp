@@ -11,6 +11,7 @@ use App\Category;
 
 class SkillController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -18,38 +19,25 @@ class SkillController extends Controller
      */
     public function index(Request $request, $category = 'All')
     {
-        /*
-        if ($request->isMethod('post')){
-            return redirect()->action('SkillController@index', array('category' =>$category));
-        }
-        */
+        $cat = Category::where('name', $category)->first();
+        $searchTerm = $request->input('searchString', '');
 
-        if ($category == 'All'){
-            $skills = Skill::orderBy('name', 'asc');
-        }
-        else{
-            $cat = Category::where('name', $category)->first();
-
-            if ($cat == null){
-                $skills = Skill::where('name', '');
-               
-            }
-            else{
-               $skills = Skill::where('category_id', $cat->id)->orderBy('name', 'asc');
-               $category=$cat->name; 
-            }
-        }
-
-        $categories = array('' => 'All') +  Category::lists('name', 'name')->all();
+        $skills = Skill::InCategory($cat)
+            ->MatchingTerm($searchTerm)
+            ->orderBy('name', 'asc')
+            ->get();
         
         if($request->ajax()){
-            $name = $request->input('searchString');
-            $skills = $skills->where('name', 'like', '%' . $name . '%');
-            return view('partials.Skills', ['skills' => $skills->get()]);
+            return view('partials.Skills', ['skills' => $skills]);
         }
-        else{
-            return view('Skills', ['skills' => $skills->get(), 'categories' => $categories, 'category' => $category]);
+
+        if ($cat != null){
+            $category = $cat->name;
         }
+        
+        $categories = array('' => 'All') +  Category::lists('name', 'name')->all();
+        return view('Skills', ['skills' => $skills, 'categories' => $categories, 'category' => $category]);
+
     }
 
 

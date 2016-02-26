@@ -26,6 +26,10 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('/skills/{category?}', 'SkillController@index');
+Route::post('/skills/{category?}', 'SkillController@index');
+Route::post('/category/{category?}', 'SkillController@changeCategory');
+
 Route::group(['middleware' => ['web']], function () {
     
 	Route::get('/', function(){
@@ -36,12 +40,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('auth/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
     Route::auth();
     Route::get('/home', 'HomeController@index');
-    Route::get('/skills/{category?}', 'SkillController@index');
-    Route::post('/skills/{category?}', 'SkillController@index');
-    Route::post('/category/{category?}', 'SkillController@changeCategory');
-    
-    
-
     //Route::resource('skills', 'SkillController');
 });
 

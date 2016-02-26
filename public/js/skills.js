@@ -12,4 +12,11 @@ $(document).ready(function(){
 		return false;
 
 	});
+
+	$('#searchString').typeWatch({
+		callback: function(){
+			$('#search-form').trigger('submit');
+		}
+	});
+	
 });
