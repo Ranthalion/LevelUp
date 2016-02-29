@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Level Up</title>
+    <title>Skill Hub</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Level Up</a>
+                <a class="navbar-brand" href="#page-top">Skill Hub</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -93,7 +93,7 @@
                 <div class="col-lg-6">
                     <div class="intro-text">
                         <div>
-                            <span class="name">Level Up</span>
+                            <span class="name">Skill Hub</span>
                             <span class="skills">Get started learning and sharing skills today</span>
                         </div>
                         <a href="#portfolio" class="btn btn-primary mt10">Browse Skills</a>
@@ -210,8 +210,8 @@
                         <p>Inspired by HackRVA in Richmond, VA</p>
                     </div>
                     <div class="footer-col col-md-6">
-                        <h3>About Level Up</h3>
-                        <p>Level Up is free to use and encourages open sharing of skills</p>
+                        <h3>About Skill Hub</h3>
+                        <p>Skill Hub is free to use and encourages open sharing of skills</p>
                     </div>
                 </div>
             </div>
@@ -220,7 +220,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Level Up
+                        Copyright &copy; Skill Hub
                     </div>
                 </div>
             </div>

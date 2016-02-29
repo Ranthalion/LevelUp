@@ -28,7 +28,7 @@ class SkillController extends Controller
             ->get();
         
         if($request->ajax()){
-            return view('partials.Skills', ['skills' => $skills]);
+            return view('partials.skills', ['skills' => $skills]);
         }
 
         if ($cat != null){
@@ -36,7 +36,7 @@ class SkillController extends Controller
         }
         
         $categories = array('' => 'All') +  Category::lists('name', 'name')->all();
-        return view('Skills', ['skills' => $skills, 'categories' => $categories, 'category' => $category]);
+        return view('skills', ['skills' => $skills, 'categories' => $categories, 'category' => $category]);
 
     }
 
